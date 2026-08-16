@@ -1,0 +1,251 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * MANOJ ARCHIVE — Japanese design-studio system.
+ * ink / paper / vermilion / indigo / gold / stone
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-vermilion: var(--vermilion);
+  --color-indigo: var(--indigo);
+  --color-gold: var(--gold);
+  --color-stone: var(--stone);
+
+  --font-display: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 2px;
+
+  --ink: oklch(0.145 0 0);
+  --paper: oklch(0.944 0.014 85);
+  --paper-deep: oklch(0.9 0.017 85);
+  --vermilion: oklch(0.53 0.176 27.5);
+  --indigo: oklch(0.29 0.048 258);
+  --gold: oklch(0.7 0.062 82);
+  --stone: oklch(0.62 0.008 85);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: oklch(0.968 0.011 85);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-deep);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-deep);
+  --muted-foreground: var(--stone);
+  --accent: var(--vermilion);
+  --accent-foreground: var(--paper);
+  --destructive: var(--vermilion);
+  --destructive-foreground: var(--paper);
+  --border: oklch(0.145 0 0 / 14%);
+  --input: oklch(0.145 0 0 / 20%);
+  --ring: var(--vermilion);
+}
+
+.dark {
+  --background: var(--ink);
+  --foreground: var(--paper);
+  --card: oklch(0.2 0.008 258);
+  --card-foreground: var(--paper);
+  --popover: oklch(0.2 0.008 258);
+  --popover-foreground: var(--paper);
+  --primary: var(--paper);
+  --primary-foreground: var(--ink);
+  --secondary: oklch(0.25 0.012 258);
+  --secondary-foreground: var(--paper);
+  --muted: oklch(0.25 0.012 258);
+  --muted-foreground: oklch(0.7 0.008 85);
+  --border: oklch(0.944 0.014 85 / 14%);
+  --input: oklch(0.944 0.014 85 / 20%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--vermilion);
+    color: var(--paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--vermilion);
+    outline-offset: 3px;
+  }
+}
+
+/* ---------- Textures & surfaces ---------- */
+
+@utility washi {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(circle at 12% 20%, oklch(0.145 0 0 / 4%) 0 1px, transparent 1px),
+    radial-gradient(circle at 68% 74%, oklch(0.145 0 0 / 3%) 0 1px, transparent 1px),
+    radial-gradient(circle at 40% 55%, oklch(0.7 0.062 82 / 8%) 0 60px, transparent 61px);
+  background-size:
+    7px 7px,
+    11px 11px,
+    100% 100%;
+}
+
+@utility shoji-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.145 0 0 / 6%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.145 0 0 / 6%) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+
+@utility paper-sheet {
+  background: linear-gradient(
+    140deg,
+    oklch(0.972 0.012 85) 0%,
+    oklch(0.944 0.014 85) 55%,
+    oklch(0.912 0.016 85) 100%
+  );
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 60%) inset,
+    0 18px 40px -22px oklch(0.145 0 0 / 45%),
+    0 2px 6px -3px oklch(0.145 0 0 / 25%);
+}
+
+@utility ink-sheet {
+  background: linear-gradient(150deg, oklch(0.17 0.006 258), oklch(0.13 0.004 258));
+  color: var(--paper);
+  box-shadow: 0 24px 60px -30px oklch(0.145 0 0 / 80%);
+}
+
+@utility seal {
+  background: var(--vermilion);
+  color: var(--paper);
+  box-shadow: 0 0 0 1px oklch(0.53 0.176 27.5 / 40%) inset;
+}
+
+@utility vertical-jp {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.28em;
+  font-family: var(--font-display);
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+@utility brush-underline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.35em;
+    height: 2px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    background: var(--vermilion);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@utility no-cursor {
+  cursor: none;
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes ink-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-3%, -4%, 0) scale(1.08);
+  }
+}
+
+@keyframes seal-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@utility ink-drift {
+  animation: ink-drift 26s ease-in-out infinite alternate;
+}
+
+@utility seal-pulse {
+  animation: seal-pulse 3.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
