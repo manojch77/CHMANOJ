@@ -3,7 +3,6 @@ import { Atmosphere } from "@/components/Atmosphere";
 import { AnimeElements } from "@/components/AnimeElements";
 import { Intro } from "@/components/Intro";
 import { KunaiCursor } from "@/components/KunaiCursor";
-import { MusicToggle } from "@/components/MusicToggle";
 import { Reveal, ScrollProgress } from "@/components/Reveal";
 import { Nav } from "@/components/Nav";
 
