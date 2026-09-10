@@ -19,7 +19,7 @@ export const experience = [
   {
     role: "UI/UX Designer Intern",
     company: "BAOIAM",
-    period: "Present", // editable
+    period: "JUL 2026 — AUG 2026", // editable
     status: "CURRENTLY DESIGNING",
     summary:
       "Working as a UI/UX intern at BAOIAM, contributing to interface design, product experiences, visual systems, and design workflows.",
